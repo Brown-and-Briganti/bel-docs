@@ -1,23 +1,8 @@
-# Examples of Code
-### Code blocks with syntax highlighting
+# Python Homepage
+### Welcome!
 
-```bash title="bash" linenums="1"
-module load apps site/infer/easybuild/setup
-module load CMake/3.15.3-GCCcore-8.3.0
-module load CUDA/10.1.243-GCC-8.3.0
- 
-export MODULEPATH=$MODULEPATH:/projects/bevanlab/software/infer/modules/modules/infer-skylake/all
-module load gromacs-v100/2020.4
-```
+Python, an widely-used and versatile programming language, is one of the most popular programming languages world-wide. Because of this, being able to read, write, modify, and troubleshoot Python syntax is an invaluable skill regardless of your intended career path. 
 
-```py title="python" linenums="1"
-import matplotlib.pyplot as plt
-import pandas as pd
-from shapely import geometry, ops
+There is almost always multiple ways to solve the same problem within Python. This could involve using solely pure Python code, utilizing externally written code (often called Packages), or more likely will be a combination of both. 
 
-def gather_data():
-    ...
-
-if __name__ == '__main__':
-    gather_data()
-```
+In the following pages we will highlight packages commonly used in our labs. These will primarily show how the code must be written to obtain specific outputs. In short, this means we will be overviewing specific routes to solve specific problems. As always, reach out to a lab lead or mentor as questions arise. 
