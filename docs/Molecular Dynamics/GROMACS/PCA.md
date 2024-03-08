@@ -50,8 +50,6 @@ gmx trjcat -f rep1.xtc rep2.xtc rep3.xtc -cat -o all_cat.xtc
 Since covariance analysis is performed on the protein backbone, you will need to generate an xtc trajectory file containing the protein backbone only.
 
 To generate a backbone-only XTC file:
-
-To generate a backbone-only XTC file:
 ```
 gmx trjconv -s topology.tpr -f all_cat.xtc -o all_cat_backbone.xtc
 ```
