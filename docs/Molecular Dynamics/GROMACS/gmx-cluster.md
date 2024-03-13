@@ -59,7 +59,7 @@ In our example, we see that 5 clusters were identified. Cluster 1 contains 326 f
 
 ### Calculating cluster occupancy
 
-Cluster occupancy is (a numeric) measure of how often a cluster's conformation occurs during the sampling period. At minimum, the threshold is 50% occupancy for a cluster to be dominant. If your first cluster has less than 50% occupancy, you may need to increase your `-cutoff` value and rerun the command.
+Cluster occupancy is a quantitative measure of how often a cluster's conformation occurs during the sampling period. At minimum, the threshold is 50% occupancy for a cluster to be dominant. If your first cluster has less than 50% occupancy, you may need to increase your `-cutoff` value and rerun the command.
 
 To calculate occupancy of a cluster, divide the total number of frames by the number of frames in the first cluster, then multiply by 100.
 
