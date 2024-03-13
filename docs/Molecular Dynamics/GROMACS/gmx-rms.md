@@ -37,7 +37,7 @@ You will be prompted to select two groups, one for least squares fit and one for
 
 Some additional options that you may find useful:
 
-* `-n`: index file to be used (see [Creating Index Files](NDX.md))
+* `-n`: index file to be used (see [Creating Index Files](gmx-ndx.md))
 * `-tu`: specifies time units (default is ps)
 * `-b` and `-e`: specifies the frames to <ins>b</ins>egin and <ins>e</ins>nd
 * `skip`: number of frames to skip, useful for large simulations
@@ -54,7 +54,7 @@ Select `Backbone` when prompted. The `-res` option is required to calculate the 
 
 Some additional options that you may find useful:
 
-* `-n`: index file to be used (see [Creating Index Files](NDX.md))
+* `-n`: index file to be used (see [Creating Index Files](gmx-ndx.md))
 * `-b` and `-e`: specifies the frames to <ins>b</ins>egin and <ins>e</ins>nd
 * `skip`: number of frames to skip, useful for large simulations
 
