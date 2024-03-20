@@ -2,7 +2,7 @@
 
 ## Introduction
 
-GROMACS has a few commands that can calculate the distance between atoms or groups of atoms. Both commands are
+GROMACS has a few commands that can calculate the distance between atoms or groups of atoms:
 
 `gmx distance` calculates distances between fixed pairs of atoms. This is useful if you are interested in specific residues involved in processes, like protein-ligand interactions.
 
