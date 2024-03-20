@@ -20,18 +20,18 @@ To use perform clustering analysis:
 gmx cluster -f trajectory.xtc -s topology.tpr -n index.ndx -method gromos -cutoff 0.2 -o rep_clust.xpm -g rep_clust.log -cl rep_clust.pdb -sz rep_size.xvg
 ```
 
+???+ tip "Other options you may find useful"
+
+    * `-n`: index file to be used (see [Creating Index Files](gmx-ndx.md))
+    * `-tu`: time units (default is ps, ns is recommended)
+    * `-b` and `-e`: the frames to <ins>b</ins>egin and <ins>e</ins>nd
+
 The `-method` option specifies the clustering algorithm, typically the `gromos` algorithm. The `-cutoff` option indicates the RMSD boundary (in nm) for structures to be considered similar enough to be clustered.
 
 Clustering should be performed after your system achieves convergence(1), so you will need to supply a starting time using `-b`. The duration that you are analyzing is considered your sampling period.
 { .annotate }
 
 1. See [Root Mean Square Deviation and Fluctuation](gmx-rms.md)
-
-Some additional options that you may find useful:
-
-* `-n`: index file to be used (see [Creating Index Files](gmx-ndx.md))
-* `-tu`: specifies time units (default is ps; ns is recommended)
-* `-b` and `-e`: specifies the frames to <ins>b</ins>egin and <ins>e</ins>nd
 
 ---
 
