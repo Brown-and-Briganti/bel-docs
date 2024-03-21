@@ -121,7 +121,7 @@ This produces the following outputs:
 
 ### Graphing 2D projections
 
-You will need the `mdpca.py` file to create PCA graphs from the 2D projection data. A version of this file is available (somewhere). You will also need a way to run Python 3 scripts.
+You will need the `mdpca.py` file to create PCA graphs from the 2D projection data. A version of this file is available [here](../../assets/pca/mdpca.py). You will also need a way to run Python 3 scripts.
 
 The following files are needed for every system you plan to compare:
 
@@ -151,7 +151,7 @@ The conformational changes indicated by the 2D graphs can be visualized by looki
 
 If your 2D graphs show any regions without overlap, these two frames should be different when you toggle between them. We can add arrow indicators to show the degree and direction of these differences using `modevectors`.
 
-To do this, you will need the [`modevectors.py` script](https://pymolwiki.org/index.php/Modevectors). You can additionally use the optional `modesplit.py` script, which automates part of this process with a little extra set-up. Place all scripts in the same directory as the PDB files you are working with.
+To do this, you will need the [`modevectors.py` script](https://pymolwiki.org/index.php/Modevectors). You can additionally use the optional [`modesplit.py` script](../../assets/pca/modesplit.py), which automates part of this process with a little extra set-up. Place all scripts in the same directory as the PDB files you are working with.
 
 #### Using `modevectors.py`
 
