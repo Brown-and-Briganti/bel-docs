@@ -10,14 +10,14 @@ Plotting RMSD against time tells us two things:
 2. Whether our simulation has achieved convergence, or a state of equilibrium.
 
 <figure markdown="span">
-  ![Example of RMSD graph with 3 replicates. RMSD is plotted as nanometer (nm) versus time (ns).](../../assets/rms/rmsd_example.png){ width="540" }
+  ![Example of RMSD graph with 3 replicates. RMSD is plotted as nanometer (nm) versus time (ns).](../../assets/GROMACS/rms/rmsd_example.png){ width="540" }
   <figcaption>RMSD graph from one set of simulations. RMSD is plotted as nanometer (nm) versus time (ns).</figcaption>
 </figure>
 
 Similarly, **root-mean-square fluctuation (RMSF)** allows us to identify regions that are highly flexible throughout the simulation. RMSF is calculated using `gmx rmsf` and is plotted as a function of protein residue.
 
 <figure markdown="span">
-  ![Example of RMSF graph with 3 replicates. RMSF is plotted as nanometer (nm) versus residue number.](../../assets/rms/rmsf_example.png){ width="540" }
+  ![Example of RMSF graph with 3 replicates. RMSF is plotted as nanometer (nm) versus residue number.](../../assets/GROMACS/rms/rmsf_example.png){ width="540" }
   <figcaption>RMSF graph from the same simulations. RMSF is plotted as nanometer (nm) versus residue number.</figcaption>
 </figure>
 

@@ -24,7 +24,7 @@ You can additionally supply a pre-existing index file to modify using the `-n` o
 
 In either case, you will be presented with the index editor containing default atom groups, grouping options, and a prompt to enter commands (`>`).
 
-![Prompt for gmx make_ndx](../../assets/ndx/make_ndx_01.png)
+![Prompt for gmx make_ndx](../../assets/GROMACS/ndx/make_ndx_01.png)
 
 Entering `q` at this point will save a NDX file containing only default groups.
 
@@ -32,7 +32,7 @@ Entering `q` at this point will save a NDX file containing only default groups.
 
 To create special groups, we will need to use the grouping options. Type `h` to show the help menu.
 
-![Help menu of gmx make_ndx](../../assets/ndx/make_ndx_02.png)
+![Help menu of gmx make_ndx](../../assets/GROMACS/ndx/make_ndx_02.png)
 
 The help menu explains how to use each grouping option. It also provides a few examples at the bottom showing how to use multiple options with operators (`! & |`).
 
@@ -83,7 +83,7 @@ In the group list above, the entire protein is defined in Group 1 and the backbo
 `splitch 4` will also create individual groups per chain, but these groups will only contain the atoms of the protein backbone.
 
 <figure markdown="span">
-![List of groups after using "splitch 1" and "splitch 4"](../../assets/ndx/make_ndx_03.png)
+![List of groups after using "splitch 1" and "splitch 4"](../../assets/GROMACS/ndx/make_ndx_03.png)
 </figure>
 
 This particular protein has six chains. After repopulating the group list with `ENTER`, we see both grouping options created six groups each, with `splitch 1` groups boxed in red (21 to 26) and `splitch 4` boxed in yellow (27 to 32).

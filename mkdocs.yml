@@ -1,4 +1,4 @@
-site_name: Documentation Mock-up
+site_name: Brown Lab Documentation
 site_url: https://brown-and-briganti.github.io/bel-docs/
 theme:
   name: material
@@ -6,6 +6,9 @@ theme:
     annotation: material/arrow-right-circle
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
     - content.code.copy
 markdown_extensions:
   - pymdownx.highlight:
@@ -28,3 +31,38 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
+  - tables
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+  - Home: index.md
+  - Lab:
+    - Managing your files with GitHub: Lab Protocols/github-guide.md
+  - Python Fundamentals:
+    - Python Fundamentals/python.md
+    - Matplotlib: 
+      - matplotlib: Python Fundamentals/matplotlib/plotting.md
+  - Molecular Dynamics:
+    - Molecular Dynamics/index.md
+    - GROMACS:
+      - Molecular Dynamics/GROMACS/index.md
+      - Set-up:
+        - Molecular Dynamics/GROMACS/gmx-ndx.md
+      - Analysis:
+        - Molecular Dynamics/GROMACS/gmx-rms.md
+        - Molecular Dynamics/GROMACS/gmx-gyrate.md
+        - Molecular Dynamics/GROMACS/gmx-sasa.md
+        - Molecular Dynamics/GROMACS/gmx-eccentricity.md
+        - Molecular Dynamics/GROMACS/gmx-dist.md
+        - Molecular Dynamics/GROMACS/gmx-gangle.md
+        - Molecular Dynamics/GROMACS/gmx-hbond.md
+        - Molecular Dynamics/GROMACS/gmx-dssp.md
+        - Molecular Dynamics/GROMACS/gmx-cluster.md
+        - Molecular Dynamics/GROMACS/gmx-pca.md
+  - Documentation Guide:
+    - Documentation Guide/contribute.md
+    - Documentation Guide/git-contribution-guide.md
+    - Configuring Documentation Pages: Documentation Guide/configuring-pages.md
+    - Guide to Style and Formatting: Documentation Guide/style-and-formatting.md
