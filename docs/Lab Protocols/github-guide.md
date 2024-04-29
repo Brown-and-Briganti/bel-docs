@@ -92,7 +92,7 @@ Regardless of which method you choose, both pages have a section to **Commit cha
 
 The first text box is the commit message. When committing changes, it is important to give it a descriptive message so you can easily figure out what each commit contains. You can optionally add a longer description in the second text box to expand on your commit message, though this should also remain relatively short (~1 sentence).
 
-Finally, you can commit directly into the `main` branch, which will save your files directly to the repository. Alternatively, you can create a new branch and generate a pull request. (...)
+Finally, you can commit directly into the `main` branch, which will save your files directly to the repository. Alternatively, you can create a new branch and generate a pull request (see [Using branches to manage your work](#using-branches-to-manage-your-work)).
 
 #### Using branches to manage your work
 
