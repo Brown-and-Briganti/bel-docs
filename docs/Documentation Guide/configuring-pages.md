@@ -13,7 +13,7 @@ Using a commonly used shorthand (e.g., gmx for GROMACS) as a prefix followed by 
 
 ## Updating the site navigation
 
-New pages are not automatically added to the site navigation. To view your new page in the documentation, they must be manually added to the `mkdocs.yml` file in the (root) directory of the GitHub repository.
+New pages are not automatically added to the site navigation. To view your new page in the documentation, they must be manually added to the `mkdocs.yml` file in the root directory of the GitHub repository.
 
 In `mkdocs.yml`, you will need to add the path to your page's MD file under the `nav` section. The `nav` section is a list, so make sure your new entry is spaced properly or the site will fail to compile. Paths used here are relative to the `docs/` directory.
 
