@@ -28,7 +28,7 @@ gmx distance -f trajectory.xtc -s topology.tpr -n index.ndx -tu ns -select 'firs
 `-select` allows you to directly indicate which groups you want to analyze, which is convenient for slurm scripts. If the `-select` option is not used, you will be presented with a group selection menu after running the command.
 
 <figure markdown="span">
-  ![Group selection menu in gmx distance.](../../assets/distance/gmx_dist_01.png){ width="540" }
+  ![Group selection menu in gmx distance.](../../assets/GROMACS/distance/gmx_dist_01.png){ width="540" }
 </figure>
 
 Note that `gmx distance` can take more complex selections than what is typical of standard index files. Enter `help examples` in the prompt for examples.

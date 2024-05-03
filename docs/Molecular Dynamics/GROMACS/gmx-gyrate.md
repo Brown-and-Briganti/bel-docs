@@ -5,7 +5,7 @@
 **Radius of Gyration (R~g~)** is a measure of protein size and compactness across the duration of the simulation. Fluctuations in R~g~ can also indicate protein flexibility and stability, where dramatic increases in R~g~ may suggest unfolding or expansion. R~g~ can be calculated using `gmx gyrate` and is generally reported as nanometers (nm) plotted against time.
 
 <figure markdown="span">
-  ![Example of Rg graph with 3 replicates. Rg is plotted as nanometer (nm) versus time (ns).](../../assets/gyrate-sasa/gmx_gyrate_01.png){ width="540" }
+  ![Example of Rg graph with 3 replicates. Rg is plotted as nanometer (nm) versus time (ns).](../../assets/GROMACS/gyrate-sasa/gmx_gyrate_01.png){ width="540" }
   <figcaption>R<sub>g</sub> graph from one set of simulations. R<sub>g</sub> is plotted as nanometer (nm) versus time (ns).</figcaption>
 </figure>
 

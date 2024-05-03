@@ -121,7 +121,7 @@ This produces the following outputs:
 
 ### Graphing 2D projections
 
-You will need the `mdpca.py` file to create PCA graphs from the 2D projection data. A version of this file is available [here](../../assets/pca/mdpca.py). You will also need a way to run Python 3 scripts.
+You will need the `mdpca.py` file to create PCA graphs from the 2D projection data. A version of this file is available [here](../../assets/GROMACS/pca/mdpca.py). You will also need a way to run Python 3 scripts.
 
 The following files are needed for every system you plan to compare:
 
@@ -141,7 +141,7 @@ Open the script in a code editor and configure the following:
 
 Save and run the script. The output will be two side-by-side projection graphs with a single title:
 
-![Example of PCA graph output](../../assets/pca/pca_2d.png)
+![Example of PCA graph output](../../assets/GROMACS/pca/pca_2d.png)
 
 The degree of overlap between the two datasets represents how structurally similar the systems are during simulation. Overlap in the data suggests these simulations take on more similar structures, or sample similar conformational space. Conversely, regions without overlap indicate differences in conformation.
 
@@ -151,7 +151,7 @@ The conformational changes indicated by the 2D graphs can be visualized by looki
 
 If your 2D graphs show any regions without overlap, these two frames should be different when you toggle between them. We can add arrow indicators to show the degree and direction of these differences using `modevectors`.
 
-To do this, you will need the [`modevectors.py` script](https://pymolwiki.org/index.php/Modevectors). You can additionally use the optional [`modesplit.py` script](../../assets/pca/modesplit.py), which automates part of this process with a little extra set-up. Place all scripts in the same directory as the PDB files you are working with.
+To do this, you will need the [`modevectors.py` script](https://pymolwiki.org/index.php/Modevectors). You can additionally use the optional [`modesplit.py` script](../../assets/GROMACS/pca/modesplit.py), which automates part of this process with a little extra set-up. Place all scripts in the same directory as the PDB files you are working with.
 
 #### Using `modevectors.py`
 
@@ -162,7 +162,7 @@ The `modevectors.py` script requires that the two frames be split into two PyMOL
 
     Navigate to the "state" option, then select "split".
     <figure markdown="span">
-    ![PyMOL graphical interface depicting the state > split options](../../assets/pca/modevec_01.png)
+    ![PyMOL graphical interface depicting the state > split options](../../assets/GROMACS/pca/modevec_01.png)
      </figure>
 
     This will create 2 new objects, "*protein*_0001" and "*protein*_0002", which correspond to the two frames.
@@ -172,7 +172,7 @@ The `modevectors.py` script requires that the two frames be split into two PyMOL
 === "Command line"
     To do this in the PyMOL command line, type `split_states all`.
     <figure markdown="span">
-    ![PyMOL terminal with the split_states all command](../../assets/pca/modevec_02.png)
+    ![PyMOL terminal with the split_states all command](../../assets/GROMACS/pca/modevec_02.png)
     </figure>
     This will create 2 new objects, "*protein*_0001" and "*protein*_0002", which correspond to the two frames.
 
@@ -204,7 +204,7 @@ To find the index of an atom in PyMOL:
  4. Repeat for all subunits.
 
 <figure markdown="span">
-  ![Standard output of the index command](../../assets/pca/modevec_03.png)
+  ![Standard output of the index command](../../assets/GROMACS/pca/modevec_03.png)
   <figcaption>Output of the index command.</figcaption>
 </figure>
 
@@ -237,7 +237,7 @@ Depending on where you are trying to run the analysis, you may need to run the c
 Regardless of how the program is run, two outputs will be generated: a text file containing a list of *atoms* with the most variance in movement, and a command line output listing the *residues*.
 
 <figure markdown="span">
-![Terminal output after performing DIRECT-ID analysis](../../assets/pca/diid_example.png)
+![Terminal output after performing DIRECT-ID analysis](../../assets/GROMACS/pca/diid_example.png)
 </figure>
 In most cases, the terminal output is the most relevant. Record or screenshot this output, as it does not get saved in a file. The residues listed should match those with the greatest motion in the Modevectors analysis.
 
