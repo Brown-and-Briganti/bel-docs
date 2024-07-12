@@ -37,6 +37,8 @@ This produces the following outputs:
 
 * `-oav`: average distances as a function of time
 * `-oxyz`: distance components (x-/y-/z-axis) as a function of time
+* 
+These XVG files can be visualized using Python or Grace to produce a plots of distance versus time, or to generate a heat-map.
 
 ## Using `gmx mindist`
 
