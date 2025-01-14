@@ -40,6 +40,8 @@ nav:
   - Home: index.md
   - Lab:
     - Managing your files with GitHub: Lab Protocols/github-guide.md
+  - ARC:
+    - Managing shared software: ARC/Managing Shared Software/installing-gromacs-arc.md
   - Python Fundamentals:
     - Python Fundamentals/python.md
     - Matplotlib: 
