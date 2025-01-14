@@ -7,6 +7,7 @@
 To load any GROMACS version, the `$MODULEPATH` environment variable must be modified as follows:
 * Infer: `export MODULEPATH=$MODULEPATH:/projects/bevanlab/software/infer/modules/modules/infer-skylake/all`
 * Tinkercliffs: `export MODULEPATH=$MODULEPATH:/projects/bevanlab/software/tinkercliffs/modules/modules/tinkercliffs-rome/all`
+* OWL: `export MODULEPATH=$MODULEPATH:/projects/bevanlab/software/tinkercliffs/modules/modules/owl-genoa/all`
 <table>
     <tr>
         <th>Cluster</th>
@@ -51,7 +52,7 @@ To load any GROMACS version, the `$MODULEPATH` environment variable must be modi
     <tr>
         <td>Tinkercliffs</td>
         <td>a100_normal_q<br>a100_dev_q</td>
-        <td><code>module load gromacs/20XX.X<code></td>
+        <td><code>module load gromacs/a100/20XX.X<code></td>
         <td>2020.4<br>2024.4</td>
         <td>Yes</td>
         <td><code>mdrun_gpu</code>(2020.4)<br><code>gmx mdrun</code>(2024.4)</td>
@@ -59,8 +60,16 @@ To load any GROMACS version, the `$MODULEPATH` environment variable must be modi
     <tr>
         <td>Tinkercliffs</td>
         <td>normal_q<br>dev_q</td>
-        <td><code>module load GROMACS<code></td>
-        <td>2020.3</td>
+        <td><code>module load gromacs/normal_q/2024.4<code></td>
+        <td>2024.4</td>
+        <td>No</td>
+        <td>--</td>
+    </tr>
+    <tr>
+        <td>OWL</td>
+        <td>normal_q<br>dev_q</td>
+        <td><code>module load gromacs/2024.4<code></td>
+        <td>2024.4</td>
         <td>No</td>
         <td>--</td>
     </tr>
