@@ -1,0 +1,1970 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://brown-and-briganti.github.io/bel-docs/ARC/Managing%20Shared%20Software/installing-gromacs-arc/">
+      
+      
+        <link rel="prev" href="../../../Lab%20Protocols/lab-scripts/">
+      
+      
+        <link rel="next" href="../../../Python%20Fundamentals/python/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Managing shared software - Brown Lab Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2afb09e1.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M22%2012a10%2010%200%200%201-10%2010A10%2010%200%200%201%202%2012%2010%2010%200%200%201%2012%202a10%2010%200%200%201%2010%2010M6%2013h8l-3.5%203.5%201.42%201.42L17.84%2012l-5.92-5.92L10.5%207.5%2014%2011H6z%22/%3E%3C/svg%3E');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gromacs-version-management-installation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Brown Lab Documentation" class="md-header__button md-logo" aria-label="Brown Lab Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Brown Lab Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Managing shared software
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Lab%20Protocols/github-guide/" class="md-tabs__link">
+          
+  
+  
+  Lab
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Lab%20Protocols/lab-scripts/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  In-House Scripts
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  ARC
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Python%20Fundamentals/python/" class="md-tabs__link">
+          
+  
+  
+  Python Fundamentals
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Molecular%20Dynamics/" class="md-tabs__link">
+          
+  
+  
+  Molecular Dynamics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Documentation%20Guide/contribute/" class="md-tabs__link">
+          
+  
+  
+  Documentation Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Brown Lab Documentation" class="md-nav__button md-logo" aria-label="Brown Lab Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Brown Lab Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Lab
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Lab
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Lab%20Protocols/github-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Managing your files with GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Lab%20Protocols/lab-scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    In-House Scripts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    ARC
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            ARC
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Managing shared software
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Managing shared software
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gromacs-version-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      GROMACS Version List
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Structure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-installation-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Installation Protocols
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#infer-installation-gpu-enabled-gromacs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infer Installation: GPU-Enabled GROMACS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Infer Installation: GPU-Enabled GROMACS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#downloading-gromacs-source-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Downloading GROMACS source-files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-with-setup_app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up with setup_app
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-gromacs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building GROMACS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building GROMACS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loading-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loading dependencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gromacs-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      GROMACS build
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modifying-module-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modifying module files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loading-and-testing-new-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loading and testing new install
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Python Fundamentals
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Python Fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python%20Fundamentals/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Homepage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Matplotlib
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Matplotlib
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python%20Fundamentals/matplotlib/plotting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    matplotlib
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Molecular Dynamics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Molecular Dynamics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Molecular%20Dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Molecular Dynamics Homepage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    GROMACS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            GROMACS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Molecular%20Dynamics/GROMACS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GROMACS Homepage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_2" id="__nav_6_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Set-up
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Set-up
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Molecular%20Dynamics/GROMACS/gmx-ndx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Index Files
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_3" id="__nav_6_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Analysis
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Molecular%20Dynamics/GROMACS/gmx-rms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Root Mean Square Deviation and Fluctuation (RMSD/RMSF)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Molecular%20Dynamics/GROMACS/gmx-gyrate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Radius of Gyration (Rg)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Molecular%20Dynamics/GROMACS/gmx-sasa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Solvent Accessible Surface Area (SASA)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Molecular%20Dynamics/GROMACS/gmx-eccentricity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Measuring Eccentricity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Molecular%20Dynamics/GROMACS/gmx-dist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Measuring Distances
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Molecular%20Dynamics/GROMACS/gmx-gangle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Measuring Angles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Molecular%20Dynamics/GROMACS/gmx-hbond/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hydrogen Bonds (H-bond)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Molecular%20Dynamics/GROMACS/gmx-dssp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Determining Secondary Structure (DSSP)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Molecular%20Dynamics/GROMACS/gmx-cluster/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Clustering Analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Molecular%20Dynamics/GROMACS/gmx-pca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Principal Component Analysis (PCA)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Documentation Guide
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Documentation%20Guide/contribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Contribute
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Documentation%20Guide/git-contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using GitHub to Contribute
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Documentation%20Guide/configuring-pages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuring Documentation Pages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Documentation%20Guide/style-and-formatting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Guide to Style and Formatting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gromacs-version-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      GROMACS Version List
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Structure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-installation-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Installation Protocols
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#infer-installation-gpu-enabled-gromacs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infer Installation: GPU-Enabled GROMACS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Infer Installation: GPU-Enabled GROMACS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#downloading-gromacs-source-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Downloading GROMACS source-files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-with-setup_app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up with setup_app
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-gromacs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building GROMACS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building GROMACS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loading-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loading dependencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gromacs-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      GROMACS build
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modifying-module-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modifying module files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loading-and-testing-new-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loading and testing new install
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="gromacs-version-management-installation">GROMACS Version Management &amp; Installation</h1>
+<h2 id="introduction">Introduction</h2>
+<p><strong>GROMACS</strong> is the main simulation engine used in our lab for performing MD simulations. Separate installations are required for both different clusters (<em>i.e.</em> Tinkercliffs, Infer) and for different partitions (<em>i.e.</em> v100, p100, <em>etc.</em>). This page documents how GROMACS installations and versions are managed and installed. </p>
+<h3 id="gromacs-version-list">GROMACS Version List</h3>
+<p>To load any GROMACS version, the <code>$MODULEPATH</code> environment variable must be modified as follows:
+* Infer: <code>export MODULEPATH=$MODULEPATH:/projects/bevanlab/software/infer/modules/modules/infer-skylake/all</code>
+* Tinkercliffs: <code>export MODULEPATH=$MODULEPATH:/projects/bevanlab/software/tinkercliffs/modules/modules/tinkercliffs-rome/all</code>
+* OWL: <code>export MODULEPATH=$MODULEPATH:/projects/bevanlab/software/tinkercliffs/modules/modules/owl-genoa/all</code></p>
+<table>
+    <tr>
+        <th>Cluster</th>
+        <th>Partition</th>
+        <th>Load Syntax</th>
+        <th>Versions</th>
+        <th>GPU-Enabled?</th>
+        <th>MDRun executable</th>
+    </tr>
+    <tr>
+        <td>Infer</td>
+        <td>v100_normal_q<br>v100_dev_q</td>
+        <td><code>module load gromacs-v100/20XX.X</code></td>
+        <td>2018.1<br>2019.1<br>2020.3<br>2020.4<br>2024.4</td>
+        <td>Yes</td>
+        <td><code>gmx mdrun</code></td>
+    </tr>
+    <tr>
+        <td>Infer</td>
+        <td>p100_normal_q<br>p100_dev_q</td>
+        <td><code>module load gromacs-p100/20XX.X</code></td>
+        <td>2019.3<br>2020.4<br>2020.4</td>
+        <td>Yes</td>
+        <td><code>gmx mdrun</code></td>
+    </tr>
+    <tr>
+        <td>Infer</td>
+        <td>t4_normal_q<br>t4_dev_q</td>
+        <td><code>module load gromacs-t4/20XX.X</code></td>
+        <td>2019.3<br>2020.3<br>2020.4</td>
+        <td>Yes</td>
+        <td><code>gmx mdrun</code></td>
+    </tr>
+    <tr>
+        <td>Infer</td>
+        <td>Login Node</td>
+        <td><code>module load gromacs/2020.4</code></td>
+        <td>2020.4</td>
+        <td>No</td>
+        <td>--</td>
+    </tr>
+    <tr>
+        <td>Tinkercliffs</td>
+        <td>a100_normal_q<br>a100_dev_q</td>
+        <td><code>module load gromacs/a100/20XX.X<code></td>
+        <td>2020.4<br>2024.4</td>
+        <td>Yes</td>
+        <td><code>mdrun_gpu</code>(2020.4)<br><code>gmx mdrun</code>(2024.4)</td>
+    </tr>
+    <tr>
+        <td>Tinkercliffs</td>
+        <td>normal_q<br>dev_q</td>
+        <td><code>module load gromacs/normal_q/2024.4<code></td>
+        <td>2024.4</td>
+        <td>No</td>
+        <td>--</td>
+    </tr>
+    <tr>
+        <td>OWL</td>
+        <td>normal_q<br>dev_q</td>
+        <td><code>module load gromacs/2024.4<code></td>
+        <td>2024.4</td>
+        <td>No</td>
+        <td>--</td>
+    </tr>
+</table>
+
+<h3 id="file-structure">File Structure</h3>
+<p>The base folder for all shared software on ARC is <code>/projects/bevanlab/software</code>. 
+As of writing, the Brown Lab has access to two clusters through ARC: <a href="https://www.docs.arc.vt.edu/resources/compute/01infer.html">Infer</a> and <a href="https://www.docs.arc.vt.edu/resources/compute/00tinkercliffs.html">Tinkercliffs</a>. Cluster-specific software, like GROMACS installations, are maintained in separate folders: <code>/projects/bevanlab/software/infer</code> and <code>/projects/bevanlab/software/tinkercliffs</code>. Partition-specific installs (modules) are maintained through using ARC's <code>setup_app</code> tool. <code>setup_app</code> automates the creation of file structures for specific apps that can be loaded modularly. Modules for Infer and Tinkercliffs are stored in <code>/projects/bevanlab/software/infer/modules</code> and <code>/projects/bevanlab/software/tinkercliffs/modules</code>, respectively. </p>
+<h2 id="example-installation-protocols">Example Installation Protocols</h2>
+<p>Note: <strong>for future GROMACS versions, the protocol as described here may not be exactly congruent</strong> in terms of module versions and CMake syntax.</p>
+<h2 id="infer-installation-gpu-enabled-gromacs">Infer Installation: GPU-Enabled GROMACS</h2>
+<h3 id="downloading-gromacs-source-files">Downloading GROMACS source-files</h3>
+<p>First, move into the Tinkercliffs software directory:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">[</span>kelsieking23@infer1<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/projects/bevanlab/software/infer
+</span></code></pre></div></p>
+<p>Download GROMACS source files with <code>wget</code> and uncompress:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">[</span>kelsieking23@infer1<span class="w"> </span>infer<span class="o">]</span>$<span class="w"> </span>wget<span class="w"> </span>http://ftp.gromacs.org/pub/gromacs/gromacs-2024.4.tar.gz
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="o">[</span>kelsieking23@infer1<span class="w"> </span>infer<span class="o">]</span>$<span class="w"> </span>tar<span class="w"> </span>-xzvf<span class="w"> </span>gromacs-2024.4.tar.gz
+</span></code></pre></div></p>
+<h3 id="setting-up-with-setup_app">Setting up with <code>setup_app</code></h3>
+<p>To set up the initial file structure for install, we will run the <code>setup_app</code> tool. Make sure that you are still on the <em>log-in node</em> and that you have not yet requested an interactive session. This is important to keep consistency in the automatic generation of file paths.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">[</span>kelsieking23@infer1<span class="w"> </span>infer<span class="o">]</span>$<span class="w"> </span>setup_app<span class="w"> </span>--base<span class="w"> </span>/projects/bevanlab/software/infer/modules<span class="w"> </span>gromacs<span class="w"> </span><span class="m">2024</span>.4
+</span></code></pre></div>
+<code>setup_app</code> will then prompt for user input. Type <code>y</code> for yes:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Create directories /projects/bevanlab/software/infer/modules/apps/infer-skylake/gromacs-v100/2024.4 and /projects/bevanlab/software/infer/modules/modules/infer-skylake/all/gromacs-v100?
+</span></code></pre></div>
+After confirming, the following will be printed to the console:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Done. To finish your build:
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a> 1. Install your app in /projects/bevanlab/software/infer/modules/apps/infer-skylake/gromacs-v100/2024.4/
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a> 2. Edit the modulefile in /projects/bevanlab/software/infer/modules/modules/infer-skylake/all/gromacs-v100/2024.4.lua
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    - Set or remove modules to load in the load() line
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    - Edit description and URL
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    - Check the variable names
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    - Edit paths (some packages don&#39;t have, e.g., an include/)
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>Note: You specified a non-standard directory. You will need to add
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>/projects/bevanlab/software/infer/modules/modules/infer-skylake/all
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>to MODULEPATH to be able to load the module.
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>This can be done by adding, e.g.,
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>  export MODULEPATH=&quot;/projects/bevanlab/software/infer/modules/modules/infer-skylake/all:$MODULEPATH&quot;
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>to your ~/.bashrc
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>Note: You may need to refresh the cache, e.g.,
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>  module --ignore_cache spider gromacs-v100
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>to find the module the first time.
+</span></code></pre></div>
+Here, we have created a file structure for our GROMACS install, allowing the creation of an isolated GROMACS install for a specific Infer partition. In this example, we will be installing on the <strong>V100 partition</strong>. </p>
+<h3 id="building-gromacs">Building GROMACS</h3>
+<p>First, we must request an interactive session:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">[</span>kelsieking23@infer1<span class="w"> </span>infer<span class="o">]</span>$<span class="w"> </span>interact<span class="w"> </span>-p<span class="w"> </span>v100_normal_q<span class="w"> </span>-t<span class="w"> </span><span class="m">6</span>:00:00<span class="w"> </span>-N1<span class="w"> </span>--ntasks<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="w"> </span><span class="m">24</span><span class="w"> </span>-A<span class="w"> </span>bevanlab<span class="w"> </span>--gres<span class="o">=</span>gpu:1
+</span></code></pre></div></p>
+<h4 id="loading-dependencies">Loading dependencies</h4>
+<p>To install GROMACS, we will need to load the correct versions of <code>CMake</code>, <code>CUDA</code>, and <code>GCC</code>. For each of these modules, there are several versions availble for loading on Infer. To see a list of available versions, we can use the command <code>module spider</code>. For example, the available versions for <code>CMake</code> are as follows:</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>[kelsieking23@inf092 infer]$ module spider CMake
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>----------------------------------------------------------------------------------------------------------------------
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  CMake:
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>----------------------------------------------------------------------------------------------------------------------
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    Description:
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>      CMake, the cross-platform, open-source build system. CMake is a family of tools designed to build, test and package software.
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>     Versions:
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>        CMake/3.15.3-GCCcore-8.3.0
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>        CMake/3.16.4-GCCcore-9.3.0
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>        CMake/3.18.4-GCCcore-10.2.0
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>        CMake/3.20.1-GCCcore-10.3.0
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>        CMake/3.21.1-GCCcore-11.2.0
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>        CMake/3.22.1-GCCcore-11.2.0
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>----------------------------------------------------------------------------------------------------------------------
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>  For detailed information about a specific &quot;CMake&quot; package (including how to load the modules) use the module&#39;s full name. Note that names that have a trailing (E) are extensions provided by other modules.
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>  For example:
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>     $ module spider CMake/3.22.1-GCCcore-11.2.0
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>----------------------------------------------------------------------------------------------------------------------
+</span></code></pre></div>
+Note that each <code>CMake</code> version has an associated <code>GCCCore</code> version. <code>CUDA</code> also has an associated <code>GCC</code> version, whcih <strong>needs to match the</strong> <code>CMAKE</code>-associated <code>GCCCore</code> <strong>version</strong>. We can check these versions by using <code>module spider</code> to inspect the available <code>CUDA</code> modules:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>[kelsieking23@inf092 infer]$ module spider CUDA
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>----------------------------------------------------------------------------------------------------------------------
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  CUDA:
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>----------------------------------------------------------------------------------------------------------------------
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    Description:
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>      CUDA (formerly Compute Unified Device Architecture) is a parallel computing platform and programming model created by NVIDIA and
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>      implemented by the graphics processing units (GPUs) that they produce. CUDA gives developers access to the virtual instruction
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>      set and memory of the parallel computational elements in CUDA GPUs.
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>     Versions:
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>        CUDA/8.0.61
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>        CUDA/9.0.176-GCC-6.4.0-2.28
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>        CUDA/10.1.243-GCC-8.3.0
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>        CUDA/10.1.243-iccifort-2019.5.281
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>        CUDA/11.0.2-GCC-9.3.0
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>        CUDA/11.0.2-iccifort-2020.1.217
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>        CUDA/11.1.1-GCC-10.2.0
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>        CUDA/11.1.1-iccifort-2020.4.304
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>        CUDA/11.4.1
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>        CUDA/11.7.0
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>        CUDA/12.1.1
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>        CUDA/12.3.2
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>     Other possible modules matches:
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>        CUDAcore  UCX-CUDA  chainer-py37-cuda10.1-gcc  chainer-py37-cuda10.2-gcc  cub-cuda10.1  cub-cuda10.2  cuda-dcgm  cuda10.1/blas  ...
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>----------------------------------------------------------------------------------------------------------------------
+</span></code></pre></div>
+For this install, we will select <code>CMake/3.18.4-GCCcore-10.2.0</code> and <code>CUDA/11.1.1-GCC-10.2.0</code>. The minimum requirement for GROMACS 20204.4 is <code>CMake 3.18.4</code> or later, and <code>CUDA/11.1.1-GCC-10.2.0</code> has a matching <code>GCC</code> version available. </p>
+<p>Now, load the required modules:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">[</span>kelsieking23@inf092<span class="w"> </span>infer<span class="o">]</span>$<span class="w"> </span>module<span class="w"> </span>reset
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="o">[</span>kelsieking23@inf092<span class="w"> </span>infer<span class="o">]</span>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>site/infer/easybuild/setup
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="o">[</span>kelsieking23@inf092<span class="w"> </span>infer<span class="o">]</span>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>CMake/3.18.4-GCCcore-10.2.0
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="o">[</span>kelsieking23@inf092<span class="w"> </span>infer<span class="o">]</span>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>CUDA/11.1.1-GCC-10.2.0
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="o">[</span>kelsieking23@inf092<span class="w"> </span>infer<span class="o">]</span>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>GCC/10.2.0
+</span></code></pre></div>
+<h4 id="gromacs-build">GROMACS build</h4>
+<p>Earlier, we un-tarred <code>gromacs-2024.4.tar.gz</code>. The uncompressed folder, <code>gromacs-2024.4</code> should now be present in <code>/projects/bevanlab/software/infer</code>. Now, we need to create a folder for build files in <code>gromacs-2024.4</code> and move there:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">[</span>kelsieking23@inf092<span class="w"> </span>infer<span class="o">]</span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/projects/bevanlab/software/infer/gromacs-2024.4
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="o">[</span>kelsieking23@inf092<span class="w"> </span>gromacs-2024.4<span class="o">]</span>$<span class="w"> </span>mkdir<span class="w"> </span>build
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="o">[</span>kelsieking23@inf092<span class="w"> </span>gromacs-2024.4<span class="o">]</span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
+</span></code></pre></div></p>
+<p>Create an initial build with <code>CMake</code>:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="o">[</span>kelsieking23@inf092<span class="w"> </span>build<span class="o">]</span>$<span class="w"> </span>cmake<span class="w"> </span>..<span class="w"> </span>-DGMX_GPU<span class="o">=</span>CUDA<span class="w"> </span>-DGMX_BUILD_OWN_FFTW<span class="o">=</span>ON<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span>/projects/bevanlab/software/infer/modules/apps/infer-skylake/gromacs-v100/2024.4/
+</span></code></pre></div>
+Breaking down the command:
+* <code>..</code> : A positional argument. Indicates the  path to <code>CMake</code> set-up files relative to the current working directory (<em>i.e.</em> in the parent directory to <code>build</code>)
+* <code>-DGMX_GPU</code> : Toggles GROMACS installation with GPU support. <code>-DGMX_GPU=CUDA</code> enables CUDA support. 
+* <code>-DGMX_BUILD_OWN_FFTW</code> : <code>FFTW</code> is an important GROMACS dependency. <code>-DGMX_BUILD_OWN_FFTW=ON</code> toggles <code>CMake</code> to build a special <code>FFTW</code> library specifically for the GROMACS build, which is better for performance and software compatability. 
+* <code>-DCMAKE_INSTALL_PREFIX</code> : This specifies where to install GROMACS. The <code>setup_app</code> command from earlier instructed that the application be installed in <code>/projects/bevanlab/software/infer/modules/apps/infer-skylake/gromacs-v100/2024.4/</code>.</p>
+<p>For more information on <code>CMake</code> commands for building GROMACS, see the official <a href="https://manual.gromacs.org/current/install-guide/index.html">GROMACS Installation Guide</a>.</p>
+<p>Upon completion, we can start the build:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">[</span>kelsieking23@inf092<span class="w"> </span>build<span class="o">]</span>$<span class="w"> </span>make<span class="w"> </span>-j<span class="w"> </span><span class="m">12</span>
+</span></code></pre></div>
+* <code>-j 12</code> : parallelizes the build process (12 threads) and is considerably faster. </p>
+<p>After the build completes, we can install the build:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">[</span>kelsieking23@inf092<span class="w"> </span>build<span class="o">]</span>$<span class="w"> </span>make<span class="w"> </span>install
+</span></code></pre></div></p>
+<h3 id="modifying-module-files">Modifying module files</h3>
+<p>The <code>setup_app</code> command created a <code>.lua</code> module file. In this file, we can specify module dependencies (<em>i.e.</em>, CMake, CUDA, and GCC modules) that will be automatically loaded when the GROMACS installation is loaded. The file, <code>/projects/bevanlab/software/infer/modules/modules/infer-skylake/all/gromacs-v100/2024.4.lua</code>, was specified in the output of <code>setup_app</code> (see <a href="#setting-up-with-setup_app">Setting up with <code>setup_app</code></a>). Open the file with <code>vi</code>:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="o">[</span>kelsieking23@inf092<span class="w"> </span>build<span class="o">]</span>$<span class="w"> </span>vi<span class="w"> </span>/projects/bevanlab/software/infer/modules/modules/infer-skylake/all/gromacs-v100/2024.4.lua
+</span></code></pre></div>
+The last line in the file stores information for dependencies. The default line should be:</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>load(&quot;foss/2020b&quot;)
+</span></code></pre></div>
+Using the text-editor, we will change the line as follows:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>load(&quot;apps&quot;,&quot;fosscuda/2020b&quot;,&quot;GCC/10.2.0&quot;, &quot;GCCcore/10.2.0&quot;, &quot;CMake/3.18.4-GCCcore-10.2.0&quot;, &quot;CUDA/11.1.1-GCC-10.2.0&quot;)
+</span></code></pre></div></p>
+<h3 id="loading-and-testing-new-install">Loading and testing new install</h3>
+<p>To check that the install functions correctly, reset all modules and load:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="o">[</span>kelsieking23@inf092<span class="w"> </span>infer<span class="o">]</span>$<span class="w"> </span>module<span class="w"> </span>reset
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="o">[</span>kelsieking23@inf092<span class="w"> </span>infer<span class="o">]</span>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">MODULEPATH</span><span class="o">=</span><span class="nv">$MODULEPATH</span>:/projects/bevanlab/software/infer/modules/modules/infer-skylake/all
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="o">[</span>kelsieking23@inf092<span class="w"> </span>infer<span class="o">]</span>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>gromacs-v100/2024.4
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="o">[</span>kelsieking23@inf092<span class="w"> </span>infer<span class="o">]</span>$<span class="w"> </span>gmx
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">                         </span>:-<span class="o">)</span><span class="w"> </span>GROMACS<span class="w"> </span>-<span class="w"> </span>gmx,<span class="w"> </span><span class="m">2024</span>.4<span class="w"> </span><span class="o">(</span>-:
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>Executable:<span class="w">   </span>/projects/bevanlab/software/infer/modules/apps/infer-skylake/gromacs-v100/2024.4/bin/gmx
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>Data<span class="w"> </span>prefix:<span class="w">  </span>/projects/bevanlab/software/infer/modules/apps/infer-skylake/gromacs-v100/2024.4
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>Working<span class="w"> </span>dir:<span class="w">  </span>/projects/bevanlab/software/infer
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>Command<span class="w"> </span>line:
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">  </span>gmx
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>...
+</span></code></pre></div></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
