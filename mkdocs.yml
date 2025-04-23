@@ -40,6 +40,7 @@ nav:
   - Home: index.md
   - Lab:
     - Managing your files with GitHub: Lab Protocols/github-guide.md
+    - In-House Scripts: Lab Protocols/lab-scripts.md
   - ARC:
     - Managing shared software: ARC/Managing Shared Software/installing-gromacs-arc.md
   - Python Fundamentals:
