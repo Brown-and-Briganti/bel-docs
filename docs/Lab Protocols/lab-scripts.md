@@ -6,6 +6,6 @@ This page will slowly build over time to include links to GitHub repositories of
 
 ## Fingerprinting by Marion LoPresti
 
-[Link to Repository]([https://github.com/skills/introduction-to-github](https://github.com/MarionQL/schrodinger_fingerprint_plotter)) 
+[Link to Repository](https://github.com/MarionQL/schrodinger_fingerprint_plotter) 
 
 Visualizing the csv output from Schrodinger interaction fingerprints as a heatmap (multiple ligands) or bar graph (single ligand).
